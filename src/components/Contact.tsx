@@ -6,8 +6,15 @@ interface Props {}
 // eslint-disable-next-line arrow-body-style
 const Contact: FC<Props> = () => {
   return (
-    <div className="max-w-screen-lg mx-auto">
-      <div className="text-2xl font-medium mb-5">Get a Quote</div>
+    <div className="max-w-screen-lg mx-auto grid grid-cols-2">
+      <div className="flex flex-col pt-10 px-10 mb-5">
+        <div className="italic text-xl mb-2">For businesses</div>
+        <div className="text-4xl font-bold">Get a Quote</div>
+        <hr className="my-8" />
+        <div>
+          <div>Get a quote within 10 minutes from our team.</div>
+        </div>
+      </div>
       <div className="flex flex-col gap-y-5 max-w-md">
         <div className="flex flex-col gap-x-4">
           <label className="mb-2">Name</label>
