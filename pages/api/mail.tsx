@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   const data = JSON.parse(body);
   console.log(data);
   const msg = {
-    to: "tlipwei@gmail.com", // Change to your recipient
+    to: "contact@zoned.media", // Change to your recipient
     from: "avantgraddd@gmail.com", // Change to your verified sender
     subject: "Sending with SendGrid is Fun",
     text: "New Order",
