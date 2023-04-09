@@ -3,16 +3,23 @@ import { FC } from "react";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Props {}
 
-const items = [
-  "Ketupak",
-  "Ketupak",
-  "Ketupak",
-  "Ketupak",
-  "Ketupak",
-  "Ketupak",
-  "Ketupak",
-  "Ketupak",
-];
+const items = {
+  1: "Moon-shaped banner",
+  2: "Banner",
+  3: "Banner",
+  4: "Banner",
+  5: "Banner",
+  6: "Banner",
+  7: "Banner",
+  8: "Ketupat",
+  9: "Ketupat",
+  10: "Ketupat",
+  11: "Ketupat",
+  12: "Ketupat",
+  13: "Basket",
+  14: "Basket",
+  15: "Basket",
+};
 
 // eslint-disable-next-line arrow-body-style
 const Posts: FC<Props> = () => {
@@ -21,15 +28,18 @@ const Posts: FC<Props> = () => {
       <div className="text-3xl font-bold">Our Products</div>
       <hr className="my-8" />
       <div className="grid grid-cols-3 gap-8">
-        {items.map((item) => (
+        {Object.entries(items).map(([key, value]) => (
           <div>
-            <div className="bg-brand h-64 rounded-2xl p-6 mb-2">Image</div>
-            <div className="px-2 text-md font-bold">{item}</div>
+            <div className="rounded-2xl mb-5 shadow-lg overflow-hidden">
+              <img
+                src={`/images/posts/${key}.png`}
+                alt={value}
+                className="object-contain"
+              />
+            </div>
+            <div className="px-2 text-md font-bold">{value}</div>
           </div>
         ))}
-        <div className=" text-white flex justify-center items-center h-18">
-          <div className="bg-black px-6 py-2 rounded-lg">Order now</div>
-        </div>
       </div>
     </div>
   );
