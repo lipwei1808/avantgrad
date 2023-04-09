@@ -17,7 +17,7 @@ const Contact: FC<Props> = ({ items }) => {
     setItem(items[1]);
   });
 
-  const onClick = (e: FormEvent<HTMLFormElement>) => {
+  const onClick = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(name, email, number, item, qty);
     const data = {
@@ -27,10 +27,11 @@ const Contact: FC<Props> = ({ items }) => {
       item,
       qty,
     };
-    fetch("/api/mail", {
+    await fetch("/api/mail", {
       method: "POST",
       body: JSON.stringify(data),
     });
+    window.location.reload();
   };
   return (
     <div className="max-w-screen-lg mx-auto grid grid-cols-2">
