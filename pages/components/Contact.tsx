@@ -1,4 +1,4 @@
-import { FC, useState, FormEvent } from "react";
+import { FC, useState, FormEvent, useEffect } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface Props {
@@ -10,8 +10,12 @@ const Contact: FC<Props> = ({ items }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
-  const [item, setItem] = useState(items[1]);
+  const [item, setItem] = useState("");
   const [qty, setQty] = useState(0);
+
+  useEffect(() => {
+    setItem(items[1]);
+  });
 
   const onClick = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -76,11 +80,12 @@ const Contact: FC<Props> = ({ items }) => {
               setItem(e.target.value);
             }}
           >
-            {Object.entries(items).map(([key, value]) => (
-              <option key={value} value={value}>
-                {value}
-              </option>
-            ))}
+            {items &&
+              Object.entries(items).map(([key, value]) => (
+                <option key={value} value={value}>
+                  {value}
+                </option>
+              ))}
           </select>
         </div>
         <div className="flex flex-col gap-x-4">
